@@ -4,8 +4,12 @@ import "./App.css";
 function App() {
   return (
     <>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+      <AppHeader />;
       <AppHeader />;
       <AppBody />;
+      <AppFooter />;
     </>
   );
 }
@@ -27,6 +31,12 @@ function AppBody() {
   );
 }
 function AppFooter() {
-  return <h1>AppFooter</h1>;
+  return (
+    <>
+      <div className="bg-secondary text-light d-flex justify-content-center align-items-center">
+        Footer
+      </div>
+    </>
+  );
 }
 export default App;
