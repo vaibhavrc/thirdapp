@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   return (
     <>
@@ -7,23 +9,41 @@ function App() {
   );
 }
 
+//Stateless
+// function CounterApp() {
+//   // DataMember Stateless
+//   let counter = 100;
+//   let str = "Like Me";
+//   let likeMeAction = () => {
+//     // alert();
+//     counter = counter + 1;
+//     console.log("I am button click");
+//   };
+//   return (
+//     <>
+//       <h1>{counter}</h1>
+//       <input type="button" value={str} onClick={likeMeAction} />
+//     </>
+//   );
+// }
+
+// Stateful
 function CounterApp() {
-  // data member
-  let counter = 1;
-  let str = "Like Me!";
-  let id = 100;
-  let PI = 3.142;
-  let active = true;
+  // DataMember Stateful:: variable+method useful to perform DOM operation
+  let [counter, setCounter] = useState(100);
+  let str = "Like Me";
+  let likeMeAction = () => {
+    // alert();
+    counter = counter + 1;
+    console.log("I am button click", counter);
 
-  //member function
-  let likeMeAction = () => {};
-  let dislikeMeAction = () => {};
-
-  // JSX::VIEW::USER-INTERFACE :: Required
+    // Asking React to perform DOM Operation
+    setCounter(counter);
+  };
   return (
     <>
       <h1>{counter}</h1>
-      <input type="button" value={str} />
+      <input type="button" value={str} onClick={likeMeAction} />
     </>
   );
 }
