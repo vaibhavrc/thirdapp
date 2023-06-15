@@ -1,49 +1,70 @@
 import { useState } from "react";
 
-function App() {
-  return (
-    <>
-      <h1>Counter App</h1>
-      <CounterApp />
-    </>
-  );
-}
-
-//Stateless
-// function CounterApp() {
-//   // DataMember Stateless
-//   let counter = 100;
-//   let str = "Like Me";
-//   let likeMeAction = () => {
-//     // alert();
-//     counter = counter + 1;
-//     console.log("I am button click");
-//   };
+// function App() {
 //   return (
 //     <>
-//       <h1>{counter}</h1>
-//       <input type="button" value={str} onClick={likeMeAction} />
+//       <h1>Props Demo</h1>
+
+//       {/* Calling MessageDemo */}
+//       <MessageDemo />
+//       <MessageDemo />
+//       <MessageDemo />
 //     </>
 //   );
 // }
 
-// Stateful
-function CounterApp() {
-  // DataMember Stateful:: variable+method useful to perform DOM operation
-  let [counter, setCounter] = useState(100);
-  let str = "Like Me";
-  let likeMeAction = () => {
-    // alert();
-    counter = counter + 1;
-    console.log("I am button click", counter);
+// //Reusable but returns static output
+// function MessageDemo() {
+//   return (
+//     <>
+//       <h1>Hello Message</h1>
+//     </>
+//   );
+// }
 
-    // Asking React to perform DOM Operation
-    setCounter(counter);
-  };
+// How to make it dynamic
+// make a function which accepts parameter
+// function App() {
+//   return (
+//     <>
+//       <h1>Props Demo</h1>
+
+//       {/* Calling MessageDemo(props) */}
+//       <MessageDemo message="Hi" username="vaibhav" />
+//       <MessageDemo message="Hello" username="v" />
+//       <MessageDemo username="vv" />
+//     </>
+//   );
+// }
+// function MessageDemo(props) {
+//   console.log("I am inside messagedemo", props);
+//   return (
+//     <>
+//       <h1>Hello {props.username}</h1>
+//     </>
+//   );
+// }
+
+// props destructured
+function App() {
   return (
     <>
-      <h1>{counter}</h1>
-      <input type="button" value={str} onClick={likeMeAction} />
+      <h1>Props Demo</h1>
+
+      {/* Calling MessageDemo(props) */}
+      <MessageDemo username="A" email="a@gmail.com" />
+      <MessageDemo username="B" email="b@gmail.com" />
+      <MessageDemo username="C" email="c@gmail.com" />
+    </>
+  );
+}
+function MessageDemo({ email, username }) {
+  //console.log("I am inside messagedemo", props);
+  return (
+    <>
+      <h1>
+        Hello {username}:{email}
+      </h1>
     </>
   );
 }
